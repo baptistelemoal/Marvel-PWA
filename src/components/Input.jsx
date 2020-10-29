@@ -13,11 +13,14 @@ const InputContainer = styled.input`
     border: 1px solid ${({ theme }) => theme.border};
 `;
 
-const Input = ({ placeholder, type }) => <InputContainer placeholder={placeholder} type={type} />;
+const Input = ({ placeholder, type, name, value, onChange }) => (
+    <InputContainer placeholder={placeholder} type={type} name={name} value={value} onChange={(e) => onChange(e.target.value)} />
+);
 
 Input.propTypes = {
     placeholder: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string,
 };
 
 export default Input;

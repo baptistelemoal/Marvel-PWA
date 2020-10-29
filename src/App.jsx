@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import actions from "./store/action";
 import Authenticate from "./screens/Authenticate";
 import Cookies from "js-cookie";
-import Hero from "./screens/Hero";
+import Character from "./screens/Character";
 import Home from "./screens/Home";
 import NotFound from "./screens/NotFound";
 import PrivateRoute from "./utils/private-route/PrivateRoute";
@@ -36,9 +36,9 @@ const App = () => {
         <ThemeProvider theme={activeTheme}>
             <GlobalStyles />
             <Switch>
-                <PrivateRoute exact path="/" component={Home} />
-                <PrivateRoute exact path="/hero/:id" component={Hero} />
-                <Route exact path="/login" render={(props) => <Authenticate {...props} />} />
+                <Route exact path="/" render={(props) => <Authenticate {...props} />} />
+                <PrivateRoute exact path="/characters" component={Home} />
+                <PrivateRoute exact path="/characters/:id" component={Character} />
                 <Route component={NotFound} />
             </Switch>
         </ThemeProvider>
