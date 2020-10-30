@@ -29,8 +29,9 @@ const CharacterLinkContainer = styled.div`
 
     a {
         display: inline-block;
-        min-width: 150px;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
         color: ${({ theme }) => theme.body};
         background-color: ${({ theme }) => theme.flash};
         text-decoration: none;

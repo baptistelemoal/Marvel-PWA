@@ -18,7 +18,7 @@ const ButtonContainer = styled.button`
     font-family: inherit;
     border: none;
     padding: 10px;
-    min-width: 150px;
+    flex: calc(50% - 16px);
     margin-left: 8px;
     margin-right: 8px;
     border-radius: 6px;

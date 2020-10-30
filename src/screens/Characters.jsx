@@ -3,6 +3,7 @@ import Center from "../components/Center";
 import CharacterInfoContainer from "../components/CharacterInfo";
 import Input from "../components/Input";
 import LoadingAnimation from "../components/LoadingAnimation";
+import Logout from "../components/Logout";
 import Pagination from "../components/Pagination";
 import Space from "../components/Space";
 import Title from "../components/Title";
@@ -75,6 +76,9 @@ const Characters = () => {
                     )}
                     <Space spaceTop={32}>
                         <Pagination offset={offset} onChangeOffset={(newOffset) => onChangePage(newOffset)} />
+                    </Space>
+                    <Space spaceTop={32}>
+                        <Logout />
                     </Space>
                 </Center>
             )}
