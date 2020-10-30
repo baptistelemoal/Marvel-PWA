@@ -11,7 +11,7 @@ export default function useApi() {
     const callApi = (method, url, data, contentType = "application/json") => {
         const apiObject = {
             method,
-            url: `${apiUrl}${url}?apikey=${publicKey}`,
+            url: `${apiUrl}${url}&apikey=${publicKey}`,
             timeout: 30000,
             headers: getHeaders(contentType),
         };

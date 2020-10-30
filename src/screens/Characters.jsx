@@ -1,13 +1,16 @@
 import { useEffect, useState, Fragment } from "react";
+import Center from "../components/Center";
 import CharacterInfoContainer from "../components/CharacterInfo";
 import Input from "../components/Input";
 import LoadingAnimation from "../components/LoadingAnimation";
+import Pagination from "../components/Pagination";
 import Space from "../components/Space";
 import Title from "../components/Title";
 import useApi from "../hooks/use-api";
 
 const Characters = () => {
     const [loading, setLoading] = useState(true);
+    const [offset, setOffset] = useState(0);
     const [filters, setFilters] = useState([]);
     const [characters, setCharacters] = useState([]);
     const api = useApi();
@@ -23,21 +26,26 @@ const Characters = () => {
         }
     };
 
+    const onChangePage = (newOffset) => {
+        setOffset(newOffset);
+    };
+
     useEffect(() => {
-        api.get("/v1/public/characters")
+        setLoading(true);
+        api.get(`/v1/public/characters?offset=${offset}&limit=25`)
             .then((res) => {
                 const response = res.data;
                 setCharacters(response.data.results);
             })
             .finally(() => setLoading(false));
-    }, []);
+    }, [offset]);
 
     return (
         <div>
             {loading ? (
                 <LoadingAnimation />
             ) : (
-                <Fragment>
+                <Center>
                     <Space spaceBottom={32}>
                         <Title>Rechercher un personnage</Title>
                         <Input type="text" onChange={(value) => filterCharacters(value)} placeholder="Recherche..." />
@@ -65,7 +73,10 @@ const Characters = () => {
                             );
                         })
                     )}
-                </Fragment>
+                    <Space spaceTop={32}>
+                        <Pagination offset={offset} onChangeOffset={(newOffset) => onChangePage(newOffset)} />
+                    </Space>
+                </Center>
             )}
         </div>
     );

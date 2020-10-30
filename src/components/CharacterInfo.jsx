@@ -7,9 +7,6 @@ const CharacterInfoContainer = styled.div`
     padding: 20px;
     border-radius: 6px;
     margin-bottom: 34px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
 `;
 
 const CharacterImageContainer = styled.img`
@@ -32,7 +29,7 @@ const CharacterLinkContainer = styled.div`
 
     a {
         display: inline-block;
-        min-width: 100px;
+        min-width: 150px;
         text-align: center;
         color: ${({ theme }) => theme.body};
         background-color: ${({ theme }) => theme.flash};
