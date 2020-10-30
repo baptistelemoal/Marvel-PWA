@@ -10,7 +10,10 @@ const InputContainer = styled.input`
     padding: 12px 16px;
     margin-bottom: 16px;
     border-radius: 6px;
+    -webkit-appearance: none;
+    background-color: ${({ theme }) => theme.input};
     border: 1px solid ${({ theme }) => theme.border};
+    color: ${({ theme }) => theme.text};
 `;
 
 const Input = ({ placeholder, type, name, value, onChange }) => (

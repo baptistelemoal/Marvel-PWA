@@ -4,6 +4,7 @@ import styled from "styled-components";
 const CenterContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     max-width: 500px;
 `;
 

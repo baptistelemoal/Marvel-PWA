@@ -1,13 +1,13 @@
 import "moment/locale/fr";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import Image from "../components/Image";
-import List from "../components/List";
+import Image from "./Image";
+import List from "./List";
 import moment from "moment";
 import PropTypes from "prop-types";
 import Space from "./Space";
 import styled from "styled-components";
-import Title from "../components/Title";
+import Title from "./Title";
 
 moment.locale("fr");
 

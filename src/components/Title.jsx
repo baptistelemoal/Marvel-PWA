@@ -4,6 +4,7 @@ import styled from "styled-components";
 const TitleContainer = styled.h1`
     display: block;
     margin-bottom: 8px;
+    text-align: left;
 `;
 
 const LineContainer = styled.span`

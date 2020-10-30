@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import actions from "../store/action";
 import axios from "axios";
 import Button from "../components/Button";
+import Center from "../components/Center";
 import Container from "../components/Container";
 import Cookies from "js-cookie";
 import Error from "../components/Error";
@@ -13,6 +14,7 @@ import Image from "../components/Image";
 import Input from "../components/Input";
 import logo from "../assets/images/logo.png";
 import Space from "../components/Space";
+import SwitchTheme from "../components/SwitchTheme";
 import Title from "../components/Title";
 
 const mapState = (state) => ({ accessToken: state.accessToken });
@@ -83,6 +85,11 @@ const Authenticate = () => {
                     <Button>Se connecter</Button>
                 </Form>
             </Container>
+            <Space spaceTop={32}>
+                <Center>
+                    <SwitchTheme />
+                </Center>
+            </Space>
         </div>
     );
 };
