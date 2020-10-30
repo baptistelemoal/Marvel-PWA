@@ -8,7 +8,7 @@ import actions from "./store/action";
 import Authenticate from "./screens/Authenticate";
 import Cookies from "js-cookie";
 import Character from "./screens/Character";
-import Home from "./screens/Home";
+import Characters from "./screens/Characters";
 import NotFound from "./screens/NotFound";
 import PrivateRoute from "./utils/private-route/PrivateRoute";
 
@@ -37,7 +37,7 @@ const App = () => {
             <GlobalStyles />
             <Switch>
                 <Route exact path="/" render={(props) => <Authenticate {...props} />} />
-                <PrivateRoute exact path="/characters" component={Home} />
+                <PrivateRoute exact path="/characters" component={Characters} />
                 <PrivateRoute exact path="/characters/:id" component={Character} />
                 <Route component={NotFound} />
             </Switch>
