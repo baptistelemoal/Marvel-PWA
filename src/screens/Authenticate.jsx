@@ -12,6 +12,7 @@ import Form from "../components/Form";
 import Image from "../components/Image";
 import Input from "../components/Input";
 import logo from "../assets/images/logo.png";
+import Space from "../components/Space";
 import Title from "../components/Title";
 
 const mapState = (state) => ({ accessToken: state.accessToken });
@@ -54,11 +55,17 @@ const Authenticate = () => {
 
     return (
         <div>
-            <Image src={logo} alt="Marvel" width="30%" center={true} spaceBottom={true} />
+            <Space spaceBottom={32}>
+                <Image src={logo} alt="Marvel" width="30%" center={true} spaceBottom={true} />
+            </Space>
             <Container>
                 <Form onSubmit={onSubmit}>
                     <Title>Bienvenue</Title>
-                    {error && <Error spaceBottom={true}>{error}</Error>}
+                    {error && (
+                        <Space spaceBottom={16}>
+                            <Error>{error}</Error>
+                        </Space>
+                    )}
                     <Input
                         placeholder="Adresse mail"
                         type="email"
