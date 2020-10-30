@@ -11,4 +11,8 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     padding: 50px 30%;
+
+    @media screen and (max-width: 750px) {
+      padding: 50px 5%;
+    }
   }`;

@@ -1,3 +1,4 @@
+import { isSecureCookie } from "../utils/utils";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -5,6 +6,7 @@ import actions from "../store/action";
 import axios from "axios";
 import Button from "../components/Button";
 import Container from "../components/Container";
+import Cookies from "js-cookie";
 import Error from "../components/Error";
 import Form from "../components/Form";
 import Image from "../components/Image";
@@ -37,9 +39,10 @@ const Authenticate = () => {
             username: emailValue,
             password: passwordValue,
         });
-
         if (authPromise.data) {
-            dispatch({ type: actions.SET_ACCESS_TOKEN, value: authPromise.data?.details });
+            const token = authPromise.data?.details;
+            Cookies.set("ac", token, { path: "/", secure: isSecureCookie() });
+            dispatch({ type: actions.SET_ACCESS_TOKEN, value: token });
         }
     };
 

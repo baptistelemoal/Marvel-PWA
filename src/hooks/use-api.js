@@ -1,22 +1,17 @@
-import { useSelector } from "react-redux";
 import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_API_URL;
-
-const mapState = (state) => ({ accessToken: state.accessToken });
+const publicKey = process.env.REACT_APP_API_PUBLIC_KEY;
 
 export default function useApi() {
-    const { accessToken } = useSelector(mapState);
-
     const getHeaders = (contentType = "application/json") => ({
-        Authorization: `Bearer ${accessToken}`,
         "Content-Type": contentType,
     });
 
     const callApi = (method, url, data, contentType = "application/json") => {
         const apiObject = {
             method,
-            url: apiUrl + url,
+            url: `${apiUrl}${url}?apikey=${publicKey}`,
             timeout: 30000,
             headers: getHeaders(contentType),
         };
